@@ -18,21 +18,14 @@ public class Menu {
         String response = scanner.next();
 
 
-        if (response.equals("1")) {
+        if (response.equals("1") || response.equals("2")) {
 
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Exit");
-             response = scanner.next();
-
-
-        }
-
-        if (response.equals("2")) {
             System.out.println("1. Deposit");
             System.out.println("2. Withdraw");
             System.out.println("3. Exit");
             response = scanner.next();
+
+
         }
 
         if (response.equals("3")) {
