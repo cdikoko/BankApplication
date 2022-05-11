@@ -1,0 +1,15 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:1px;
+    overflow: hidden;
+
+}
+
+.info__container{
+
+}
+
+.imageslider__container{
+    
+}
