@@ -1,11 +1,43 @@
-import React from "react";
-import Info from "../Info/Info";
+import React, { useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import { Grid, Box } from "@mui/material/";
+import { Typography } from "@mui/material";
 import BankLogo from "../../Assets/Bank_logo.png";
+import { useNavigate } from "react-router-dom";
+
 
 import "./login.css";
 
 const Login = () => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const testUser = {
+    user: "test",
+    pword: "test",
+  };
+
+  const [check, setCheck] = useState(false);
+
+  // Authentication
+  const checkUser = (uname, pword) => {
+    //check if the user is in the database
+    if (testUser.user === uname && testUser.pword === pword) {
+      alert("Correct password or email");
+      setCheck(true);
+    } else if (uname === "" || pword === "") {
+      alert("Please Enter Password or Email");
+    } else {
+      alert("Incorrect password or email");
+    }
+  };
+
+  if (check) {
+    navigate("/dashboard");
+  }
+
   return (
     <>
       <img
@@ -18,7 +50,65 @@ const Login = () => {
           maxWidth: "25%",
         }}
       />
-      <Info />
+      <div
+        className="login"
+        style={{
+          margin: "10px auto",
+          width: "40%",
+          border: "3px solid blue",
+          padding: "10px",
+        }}
+      >
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="space-evenly"
+            alignItems="center"
+            spacing={3}
+          >
+            <Grid item xs={2}>
+              <Typography variant="h2">Sign In</Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                id="outlined-basic"
+                label="Username"
+                type="email"
+                variant="outlined"
+                helperText="Please enter your username"
+                onChange={(event) => {
+                  setUserName(event.target.value);
+                }}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <TextField
+                id="outlined-password-input"
+                label="Password"
+                type="password"
+                helperText="Please enter your password"
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <Typography variant="h6">
+                Remember Me <Checkbox />
+              </Typography>
+            </Grid>
+            <Grid item xs={2}>
+              <Button
+                variant="contained"
+                onClick={() => checkUser(userName, password)}
+              >
+                Sign In
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
+      </div>
     </>
   );
 };

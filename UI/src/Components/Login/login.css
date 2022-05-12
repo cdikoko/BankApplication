@@ -1,15 +1,21 @@
-.wrapper{
+.wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap:1px;
+    gap: 1px;
     overflow: hidden;
 
 }
 
-.info__container{
-
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
 }
 
-.imageslider__container{
-    
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
 }

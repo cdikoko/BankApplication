@@ -11,7 +11,7 @@ import { Box } from "@mui/material";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const imgURL =
     "https://media.istockphoto.com/photos/stuffed-piggy-bank-with-us-dollars-picture-id182905321?b=1&k=20&m=182905321&s=170667a&w=0&h=KUe7r_Ndpp8f-d4f15lPdgC8cvHq5eAqXD3dl5cigGc=";
 
