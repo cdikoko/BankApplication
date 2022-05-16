@@ -14,17 +14,24 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const testUser = {
-    user: "test",
-    pword: "test",
-  };
+
+  //user object
+  const user = {
+    first: "",
+    last: "",
+    username:"test",
+    password:"test",
+    balace: 500,
+    accountNumber: 1,
+    email: "test@test.com"
+  }
 
   const [check, setCheck] = useState(false);
 
   // Authentication
   const checkUser = (uname, pword) => {
     //check if the user is in the database
-    if (testUser.user === uname && testUser.pword === pword) {
+    if (user.username === uname && user.password === pword) {
       alert("Correct password or email");
       setCheck(true);
     } else if (uname === "" || pword === "") {
